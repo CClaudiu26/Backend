@@ -5,7 +5,7 @@ import cors from 'cors'
 
 
 const app = express();
-
+const port = process.env.PORT || 9000;
 
 //middleware
 app.use (cors());
@@ -162,6 +162,6 @@ app.put ('/movedepartment' , (req, res) =>{
 
 
 
-app.listen ('9000', () =>{
+app.listen (port, () =>{
     console.log("Server started");
 })
