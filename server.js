@@ -139,13 +139,13 @@ app.put ('/updatedepartment' , (req, res) =>{
 
 app.put ('/movedepartment' , (req, res) =>{
     
-    const pdepartment = req.body.pdepartment;
+  const pdepartment = req.body.pdepartment;
     const id = req.body.id;
     const lastid = req.body.lastid;
     const lastdepartment = req.body.lastdepartment;
 
-    db.query (" UPDATE department t1 JOIN department t2 ON t1.idd = ? AND t2.idd = ? SET t1.pdepartment = ?, t2.pdepartment = ? ", 
-    [id, lastid , pdepartment, lastdepartment], 
+    db.query (" UPDATE department t1 JOIN department t2 ON t1.idd = ? AND t2.idd = ? SET t1.pdepartment = ?", 
+    [id, lastid , pdepartment], 
     (err, result) =>{
         if (err){
             console.log(err);
